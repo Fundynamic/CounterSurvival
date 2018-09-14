@@ -37,19 +37,6 @@ public class PlayerController : MonoBehaviour {
         // Rotate player sprite
         float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotation_z + offset);
-
-        // Rotate flashlight with it (let it point towards mouse)
-        float rotation_x = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        float rotation_y = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = light.transform.position.z;
-        var targetRotation = Quaternion.LookRotation(Vector3.forward, (mousePos - transform.position));
-
-        //        light.transform.rotation = Quaternion.Euler(light.transform.position.x, light.transform.position.y, rotation_z + offset);
-        //        light.transform.rotation = Quaternion.Euler(light.transform.position.x, light.transform.position.y, rotation_z + offset);
-//        light.transform.rotation = targetRotation;
-//        light.transform.Rotate(0,0,90);
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
