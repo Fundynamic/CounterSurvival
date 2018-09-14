@@ -13,6 +13,8 @@ public class BulletBehaviour : MonoBehaviour
 	public float Damage = 1f;
 	
 	private Rigidbody2D rb;
+
+	public GameObject ExplosionEffect;
 	
 
 	// Use this for initialization
@@ -41,7 +43,11 @@ public class BulletBehaviour : MonoBehaviour
 		Destroy(gameObject);
 		if (other.gameObject.CompareTag("Destructible"))
 		{
+			
+			var effect = Instantiate(ExplosionEffect, gameObject.transform.position, gameObject.transform.rotation);
+			
 			Destroy(other.gameObject);
+			Destroy(effect, 1);
 		}
 	}
 	

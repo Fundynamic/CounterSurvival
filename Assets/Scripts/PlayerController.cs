@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     
-
     public float moveSpeed;             //Floating point variable to store the player's movement speed.
 
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
@@ -61,4 +61,15 @@ public class PlayerController : MonoBehaviour {
         rb2d.MovePosition(newPosition);
     }
 
+    private void OnGUI()
+    {
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+//        GUI.enabled = true;
+//        GUI.color = Color.green;
+//        GUI.backgroundColor = Color.green;
+//        GUI.Box(new Rect(pos.x - 32, pos.y - 48, 64, 16), GUIContent.none);
+//        GUI.color = Color.green;
+//        GUI.Box(new Rect(pos.x - 32, pos.y - 48, 32, 16), GUIContent.none);
+        
+    }
 }
